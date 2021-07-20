@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import data from "./assets/data/data.json"
+import netflix from "./img/netflix.png"
+import Section from "./components/Section"
+import Footer from "./components/Footer.js"
 
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="body">
+      <img src={netflix} alt="netflix" />
+      {data.map((elem, index)=>{
+        return(
+          <Section 
+          key={index}
+          title={elem.category}
+          image={elem.images}
+          />
+        )
+      })}
+   <Footer/>
     </div>
+    
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+// image={elem.images}
